@@ -1,25 +1,33 @@
-# Medical Result Prediction using Logistic Regression
+# Artificial Intelligence Project – Medical Result Prediction using Logistic Regression
 
 ## Project Overview
 
-This project uses Logistic Regression to predict the medical `Result` based on patient health-related features.
+This project is an **Artificial Intelligence and Machine Learning project** that uses **Logistic Regression** to predict whether a medical test result is **Positive** or **Negative**.
 
-The dataset contains medical measurements such as Age, Gender, Heart rate, blood pressure, Blood sugar, CK-MB, and Troponin.
+The project demonstrates the complete machine learning workflow, including data loading, exploratory data analysis, preprocessing, model training, prediction, evaluation, and feature analysis.
 
-The target variable is `Result`, which contains two classes:
+---
 
-- `negative`
-- `positive`
+## Project Objective
 
-## Objective
+The main objective of this project is to build a machine learning model that can predict the medical **Result** based on patient health-related features.
 
-The main objective of this project is to build a binary classification model that predicts whether a medical result is positive or negative.
+### Target Classes
+
+- **Negative** – Negative medical result
+- **Positive** – Positive medical result
+
+---
 
 ## Dataset
 
-The project uses the `Medicaldataset (1).csv` dataset.
+The dataset used in this project is:
+
+**`Medicaldataset (1).csv`**
 
 ### Features
+
+The dataset contains the following features:
 
 - Age
 - Gender
@@ -30,12 +38,16 @@ The project uses the `Medicaldataset (1).csv` dataset.
 - CK-MB
 - Troponin
 
-### Target Variable
+### Target
 
-`Result`
+- Result
 
-- `negative` → Negative result
-- `positive` → Positive result
+The target contains two classes:
+
+- `negative`
+- `positive`
+
+---
 
 ## Technologies Used
 
@@ -48,20 +60,50 @@ The project uses the `Medicaldataset (1).csv` dataset.
 - Scikit-learn
 - Joblib
 
+---
+
 ## Machine Learning Algorithm
 
 ### Logistic Regression
 
-Logistic Regression is used for binary classification.
+Logistic Regression is a supervised machine learning algorithm used for classification problems.
 
-The model is trained using balanced class weights.
+In this project, Logistic Regression is used for **binary classification** to predict whether the medical result is positive or negative.
+
+---
+
+## Project Workflow
+
+The project follows these steps:
+
+1. Import required libraries
+2. Upload and load the dataset
+3. Inspect the dataset
+4. Check missing values
+5. Check duplicate values
+6. Perform Exploratory Data Analysis (EDA)
+7. Encode categorical data
+8. Separate features and target
+9. Split data into training and testing sets
+10. Handle missing values using median imputation
+11. Standardize the features
+12. Train the Logistic Regression model
+13. Make predictions
+14. Evaluate the model
+15. Generate confusion matrix
+16. Generate ROC curve and calculate ROC-AUC
+17. Analyze model coefficients
+18. Save the trained model
+
+---
+
+## Data Preprocessing
+
+The following preprocessing techniques were used:
+
+### 1. Categorical Encoding
+
+The `Gender` column was converted into numerical form using one-hot encoding.
 
 ```python
-from sklearn.linear_model import LogisticRegression
-
-model = LogisticRegression(
-    class_weight="balanced",
-    random_state=42
-)
-
-model.fit(X_train, y_train)
+pd.get_dummies(X, columns=["Gender"], drop_first=True)
